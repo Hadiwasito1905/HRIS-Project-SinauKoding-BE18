@@ -48,9 +48,6 @@ public abstract class BaseEntity<T> implements Serializable {
     @Column(name = "updated_by", columnDefinition = "VARCHAR(100)")
     private String updatedBy;
 
-    @Column(name = "name", columnDefinition = "VARCHAR(100)")
-    private String name;
-
     @PrePersist
     protected void onCreate() {
         setCreatedTime(new Date());

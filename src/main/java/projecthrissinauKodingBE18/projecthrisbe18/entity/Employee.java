@@ -30,10 +30,10 @@ public class Employee extends BaseEntity<Employee> {
     @Temporal(TemporalType.DATE)
     private Date endDate;
 
-    @Column(name = "nip")
+    @Column(name = "nip",columnDefinition ="VARCHAR(255)" )
     private String nip;
 
-    @Column(name = "status")
+    @Column(name = "status", columnDefinition = "VARCHAR(50)")
     @Enumerated(EnumType.STRING)
     private StatusEmployee status = StatusEmployee.ACTIVE;
 

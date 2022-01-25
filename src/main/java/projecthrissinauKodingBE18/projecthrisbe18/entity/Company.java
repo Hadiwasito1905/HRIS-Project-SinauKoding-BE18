@@ -28,8 +28,8 @@ public class Company extends BaseEntity<Company> {
     private String address;
 
     @Column(name = "latitude")
-    private Double latitude;
+    private double latitude;
 
     @Column(name = "longitude")
-    private Double longitude;
+    private double longitude;
 }
