@@ -30,29 +30,30 @@ public class BankController extends BaseController {
     }
 
     @PostMapping
-    public RestResult save(@RequestBody Bank param){
+    public RestResult save(@RequestBody Bank param) {
         param = service.save(param);
 
         return new RestResult(param, param != null ? StatusCode.SAVE_SUCCESS : StatusCode.SAVE_FAILED);
     }
 
     @PutMapping
-    public RestResult update(@RequestBody Bank bank){
+    public RestResult update(@RequestBody Bank bank) {
         bank = service.update(bank);
 
         return new RestResult(bank, bank != null ? StatusCode.UPDATE_SUCCESS : StatusCode.UPDATE_FAILED);
     }
 
-//    @DeleteMapping(value = "{id}")
-//    public RestResult delete(@PathVariable Long id){
+    @DeleteMapping(value = "{id}")
+    public RestResult delete(@PathVariable Long id) {
 //        boolean deleted = false;
 //        Bank bank = service.searchById(id);
 //
-//        if (bank != null){
+//        if (bank != null) {
 //            service.statusDelete(id);
 //            deleted = service.delete(id);
 //        }
-//
-//        return new RestResult(deleted ? StatusCode.DELETE_SUCCESS : StatusCode.DELETE_FAILED);
-//    }
-}
+
+        return new RestResult(service.delete(id) ? StatusCode.DELETE_SUCCESS : StatusCode.DELETE_FAILED);
+    }
+ }
+

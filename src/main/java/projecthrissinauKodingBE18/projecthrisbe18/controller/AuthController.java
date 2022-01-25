@@ -13,7 +13,7 @@ import projecthrissinauKodingBE18.projecthrisbe18.service.UserService;
 @RestController
 @RequestMapping("auth")
 @PreAuthorize("permitAll()")
-public class AuthController {
+public class AuthController extends BaseController {
 
     @Autowired
     private UserService service;
