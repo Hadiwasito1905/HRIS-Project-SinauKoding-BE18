@@ -14,7 +14,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class Employee extends BaseEntity<Employee> {
 
-
     private static final long serialVersionUID = 8824698469740862482L;
 
     public enum StatusEmployee {

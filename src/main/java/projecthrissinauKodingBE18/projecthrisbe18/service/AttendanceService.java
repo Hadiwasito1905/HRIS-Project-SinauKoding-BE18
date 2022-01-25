@@ -8,6 +8,8 @@ import projecthrissinauKodingBE18.projecthrisbe18.dao.AttendanceDAO;
 import projecthrissinauKodingBE18.projecthrisbe18.dao.BaseDAO;
 import projecthrissinauKodingBE18.projecthrisbe18.entity.Attendance;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 @Service
@@ -21,17 +23,18 @@ public class AttendanceService extends BaseService<Attendance> {
         return dao;
     }
 
-//    @Autowired
-//    private EmployeeService employeeService;
+    @Autowired
+    private EmployeeService employeeService;
 
-//    @Transactional
-//    public Attendance save(Attendance entity){
-//        entity.setDate(new Date());
-//        entity.setStartTime(new Date());
-//        entity.setEmployee(employeeService.findbyUserId(ProjectHrisBe18Application.getCurrentUser()));
-//
-//        return dao.save(entity);
-//    }
+    @Transactional
+    public Attendance save(Attendance entity){
+        entity.setDate(new Date());
+        entity.setStartTime(new Date());
+        entity.setEmployee(employeeService.findByUserId(ProjectHrisBe18Application.getCurrentUser()));
+
+        return dao.save(entity);
+    }
+
     @Transactional
     public Attendance update(Attendance entity){
         if (entity.getId() != null){
@@ -83,10 +86,10 @@ public class AttendanceService extends BaseService<Attendance> {
         return null;
     }
 
-//    @Transactional
-//    public Collection<Attendance> findByDate(Attendance entity, Date startDate, Date endDate){
-//        Collection<Attendance> result = dao.findByDate(entity, startDate, endDate);
-//        return result.size() > 0 ? result : new ArrayList<>();
-//    }
+    @Transactional
+    public Collection<Attendance> findByDate(Attendance entity, Date startDate, Date endDate){
+        Collection<Attendance> result = dao.findByDate(entity, startDate, endDate);
+        return result.size() > 0 ? result : new ArrayList<>();
+    }
 
 }

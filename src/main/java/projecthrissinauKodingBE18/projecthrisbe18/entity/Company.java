@@ -15,7 +15,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Company extends BaseEntity<Company> {
 
-
     private static final long serialVersionUID = 8091748951951729053L;
 
     @Column(name = "name", columnDefinition = "VARCHAR(100)", nullable = false)
@@ -28,8 +27,8 @@ public class Company extends BaseEntity<Company> {
     private String address;
 
     @Column(name = "latitude")
-    private double latitude;
+    private Double latitude;
 
     @Column(name = "longitude")
-    private double longitude;
+    private Double longitude;
 }

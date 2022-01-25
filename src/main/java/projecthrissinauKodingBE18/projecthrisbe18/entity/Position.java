@@ -16,7 +16,6 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class Position extends BaseEntity<Position> {
 
-
     private static final long serialVersionUID = -1012506979568638734L;
 
     @Column(name = "name", columnDefinition = "VARCHAR(255)")

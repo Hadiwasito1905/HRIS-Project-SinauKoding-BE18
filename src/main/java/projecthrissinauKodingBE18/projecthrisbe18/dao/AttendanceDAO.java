@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public class AttendanceDAO extends BaseDAO<Attendance> {
+    
     @Override
     public List<Predicate> predicates(Attendance param, CriteriaBuilder builder, Root<Attendance> root, boolean isCount){
         List<Predicate> predicates = super.predicates(param, builder, root,isCount);
