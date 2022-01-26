@@ -23,6 +23,7 @@ public class AuthController extends BaseController {
         return service.login(user);
     }
 
+    @PreAuthorize("permitAll()")
     @PostMapping(value = "do-register")
     public RestResult register(@RequestBody User param){
         return new RestResult(service.register(param, User.Role.ROLE_USER));

@@ -42,6 +42,7 @@ public abstract class BaseDAO<T extends BaseEntity<T>> {
         return singleResult(query, predicates(param, builder, root, false));
     }
 
+
     public Collection<T> find(T param, int offset, int limit){
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 

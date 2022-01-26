@@ -1,5 +1,6 @@
 package projecthrissinauKodingBE18.projecthrisbe18.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -85,6 +86,7 @@ public class User extends BaseEntity<User> {
 
     @Column(name = "phone")
     private String phone;
+
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name ="company_id")
