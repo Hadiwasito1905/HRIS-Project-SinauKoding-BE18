@@ -12,15 +12,15 @@ public class ProjectHrisBe18Application {
 		SpringApplication.run(ProjectHrisBe18Application.class, args);
 	}
 
-	public static User getCurrentUser() {
-		try {
-			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-			if (principal != null && principal.getClass().equals(User.class)) {
-				return (User) principal;
-			}
-		} catch (Exception ignore) {
-		}
-return null;
-	}
+//	public static User getCurrentUser() {
+//		try {
+//			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//			if (principal != null && principal.getClass().equals(User.class)) {
+//				return (User) principal;
+//			}
+//		} catch (Exception ignore) {
+//		}
+//return null;
+//	}
 }

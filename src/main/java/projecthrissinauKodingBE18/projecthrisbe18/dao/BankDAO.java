@@ -28,15 +28,11 @@ public class BankDAO extends BaseDAO<Bank> {
     public Bank findByName(Bank param) {
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Bank> query = builder.createQuery(Bank.class);
-
         Root<Bank> root = query.from(Bank.class);
-
         Predicate p = builder.equal(root.get("name"), param.getName());
         query.where(p);
-
         TypedQuery<Bank> result = entityManager.createQuery(query);
         List<Bank> resultList = result.getResultList();
-
         return resultList.size() > 0 ? resultList.get(0) : new Bank();
     }
 }

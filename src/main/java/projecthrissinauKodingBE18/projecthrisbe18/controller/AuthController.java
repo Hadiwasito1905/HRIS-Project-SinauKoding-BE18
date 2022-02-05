@@ -18,13 +18,13 @@ public class AuthController extends BaseController {
     @Autowired
     private UserService service;
 
-    @PostMapping(value = "do-login")
+    @PostMapping(value = "/do-login")
     public RestResult doLogin(@RequestBody User user){
         return service.login(user);
     }
 
     @PreAuthorize("permitAll()")
-    @PostMapping(value = "do-register")
+    @PostMapping(value = "/do-register")
     public RestResult register(@RequestBody User param){
         return new RestResult(service.register(param, User.Role.ROLE_USER));
     }

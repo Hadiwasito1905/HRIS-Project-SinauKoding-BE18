@@ -26,13 +26,9 @@ public class AttendanceDAO extends BaseDAO<Attendance> {
     }
 
     public List<Attendance> findByDate(Attendance param, Date startDate, Date endDate){
-
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-
         CriteriaQuery<Attendance> query = builder.createQuery(Attendance.class);
-
         Root<Attendance> root = query.from(Attendance.class);
-
         if (param != null) {
             if (param.getEmployee() != null) {
                 query.where(builder.equal(root.get("employee").get("id"), param.getEmployee().getId()));
@@ -48,7 +44,6 @@ public class AttendanceDAO extends BaseDAO<Attendance> {
         root.fetch("employee", JoinType.INNER).fetch("user", JoinType.INNER).fetch("position", JoinType.INNER);
 
         TypedQuery<Attendance> typedQuery = entityManager.createQuery(query);
-
         return typedQuery.getResultList();
     }
 }

@@ -52,9 +52,9 @@ public abstract class BaseEntity<T> implements Serializable {
     @PrePersist
     protected void onCreate() {
         setCreatedTime(new Date());
-        setCreatedBy(ProjectHrisBe18Application.getCurrentUser() != null
-                ? ProjectHrisBe18Application.getCurrentUser().getId()
-                : 0);
+//        setCreatedBy(ProjectHrisBe18Application.getCurrentUser() != null
+//                ? ProjectHrisBe18Application.getCurrentUser().getId()
+//                : 0);
     }
 
     @PreRemove
@@ -66,9 +66,9 @@ public abstract class BaseEntity<T> implements Serializable {
     @PreUpdate
     protected void onUpdate() {
         setUpdatedTime(new Date());
-        setUpdatedBy(ProjectHrisBe18Application.getCurrentUser() != null
-        ? ProjectHrisBe18Application.getCurrentUser().getId() : 0);
-    }
-
+//        setUpdatedBy(ProjectHrisBe18Application.getCurrentUser() != null
+//        ? ProjectHrisBe18Application.getCurrentUser().getId() : 0);
+//
+}
 }
 

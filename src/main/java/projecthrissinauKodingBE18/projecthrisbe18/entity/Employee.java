@@ -1,5 +1,6 @@
 package projecthrissinauKodingBE18.projecthrisbe18.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,6 +37,7 @@ public class Employee extends BaseEntity<Employee> {
     @Enumerated(EnumType.STRING)
     private StatusEmployee status = StatusEmployee.ACTIVE;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

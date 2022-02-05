@@ -8,6 +8,7 @@ import projecthrissinauKodingBE18.projecthrisbe18.common.RestResult;
 import projecthrissinauKodingBE18.projecthrisbe18.common.StatusCode;
 import projecthrissinauKodingBE18.projecthrisbe18.entity.Attendance;
 import projecthrissinauKodingBE18.projecthrisbe18.service.AttendanceService;
+import projecthrissinauKodingBE18.projecthrisbe18.utils.DateUtils;
 
 import java.util.ArrayList;
 
@@ -30,23 +31,23 @@ public class AttendanceController extends BaseController {
         return new RestResult(rows > 0 ? service.find(attendance, offset, limit) : new ArrayList<>(), rows);
     }
 
-//    @GetMapping("/by-date")
-//    public RestResult findByDate(@RequestParam(value = "param", required = false) String param,
-//                                 @RequestParam(value = "start-date") String startDate,
-//                                 @RequestParam(value = "end-date") String endDate) throws JsonProcessingException {
-//        RestResult result = new RestResult(StatusCode.OPERATION_FAILED);
-//
-//        Attendance attendance = param != null ? new ObjectMapper().readValue(param, Attendance.class) : new Attendance();
-//
-//        result.setData(service.findByDate(attendance,
-//                DateUtils.fromString(startDate),
-//                DateUtils.fromString(endDate)));
-//        result.setRows((long) service.findByDate(attendance,
-//                DateUtils.fromString(startDate),
-//                DateUtils.fromString(endDate)).size());
-//
-//        return result;
-//    }
+    @GetMapping("/by-date")
+    public RestResult findByDate(@RequestParam(value = "param", required = false) String param,
+                                 @RequestParam(value = "start-date") String startDate,
+                                 @RequestParam(value = "end-date") String endDate) throws JsonProcessingException {
+        RestResult result = new RestResult(StatusCode.OPERATION_FAILED);
+
+        Attendance attendance = param != null ? new ObjectMapper().readValue(param, Attendance.class) : new Attendance();
+
+        result.setData(service.findByDate(attendance,
+                DateUtils.fromString(startDate),
+                DateUtils.fromString(endDate)));
+        result.setRows((long) service.findByDate(attendance,
+                DateUtils.fromString(startDate),
+                DateUtils.fromString(endDate)).size());
+
+        return result;
+    }
 
     @PostMapping
     public RestResult save(@RequestBody Attendance entity){

@@ -1,5 +1,6 @@
 package projecthrissinauKodingBE18.projecthrisbe18.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -41,6 +42,7 @@ public class Attendance extends BaseEntity<Attendance> {
     @Temporal(TemporalType.TIME)
     private Date restEndTime;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")
     private Employee employee;
